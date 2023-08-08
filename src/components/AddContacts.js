@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 class AddContacts extends React.Component {
 state={
@@ -9,10 +9,10 @@ state={
   add=(e)=>{
     e.preventDefault()
     if(this.state.name ===""||this.state.email===""){
-      alert("All the fileds are mandatory")
+      alert("All the fields are mandatory")
       return
     }
-    this.props.addContacthandler(this.state)
+    this.props.addContactHandler(this.state)
     this.setState({name:"",email:""})
     console.log(this.state);
   }
@@ -27,7 +27,7 @@ state={
           </div>
           <div className='field'>
             <label htmlFor="email">Email:</label>
-            <input type="text" name='email' placeholder='Email'value={this.state.email} onChange={(e)=>this.setState({name:e.target.value})} /> 
+            <input type="text" name='email' placeholder='Email'value={this.state.email} onChange={(e)=>this.setState({email:e.target.value})} /> 
           </div>
           <button className='ui button blue' type='submit'>Add</button>
         </form>
